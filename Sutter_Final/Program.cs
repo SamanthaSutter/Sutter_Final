@@ -6,7 +6,8 @@ namespace Sutter_Final
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            GradesUI ui = new GradesUI();
+            ui.MainMethod();
         }
     }
 }

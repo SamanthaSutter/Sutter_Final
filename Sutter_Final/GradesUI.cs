@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static System.Console;
 
 namespace Sutter_Final
 {
@@ -12,12 +13,24 @@ namespace Sutter_Final
         {
             //instance an object of StudentUI..
             myStudentS = new StudentS();
-            
-            //Call StudentUI->PopulateStudents..
-            //Verify file was successfully read.
-            //if successfull call DisplayInfo()
-            //else display error message.
 
+            //Call StudentUI->PopulateStudents..
+            string path = "grades.txt";
+            string result = myStudentS.PopulateStudents(path);
+
+            //Verify file was successfully read.
+            //else display error message.
+            if (result.StartsWith("Error: "))
+            {
+                WriteLine("An error occurred while populating ");
+                WriteLine(result);
+            }
+            else
+            {
+                //if successfull call DisplayInfo()
+               DisplayInfo();
+
+            }
         }
 
         void DisplayInfo()
