@@ -17,7 +17,7 @@ namespace Sutter_Final
             //this is the method you need to implement...NO CONSOLE LOGIC in this file.
             //use the parameter path for file name, and return an error string!!
             //1) create instance of theStudentList (theStudentList = new List<Student>();)
-            List<Student> theStudentList = new List<Student>();
+            theStudentList = new List<Student>();
             
             //2) create an instance of the StreamReader Class to read the data from the file named in the variable path
 
@@ -42,8 +42,8 @@ namespace Sutter_Final
                         //6) now loop through remaining fields 3 - 23 for earned and possible and set though method EnterGrade.
                         for (int i = 3; i < data.Length; i += 2)
                         {
-                            int earned = Int16.Parse(data[i]);
-                            int possible = Int16.Parse(data[i + 1]);
+                            int earned = int.Parse(data[i]);
+                            int possible = int.Parse(data[i + 1]);
                             student.EnterGrade( earned, possible);
                         }
                         //7) call CalGrade on the Student object - that sets the average and grade.

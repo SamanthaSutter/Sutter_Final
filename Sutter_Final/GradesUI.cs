@@ -35,13 +35,15 @@ namespace Sutter_Final
 
         void DisplayInfo()
         {
-            Console.WriteLine("Student id\tLast Name\tAverage  \tGrade");
+            WriteLine("Student id\tLast Name\tAverage  \tGrade");
 
             for (int index = 0; index < myStudentS.ListLength; index++)
             {
 
-                Console.WriteLine(" {0} \t {1}    \t {2}    \t {3}", myStudentS.StudentID(index), myStudentS.StudentLastName(index), myStudentS.StudentAverage(index), myStudentS.StudentGrade(index));
+                WriteLine(" {0} \t {1}    \t {2}    \t {3}", myStudentS.StudentID(index), myStudentS.StudentLastName(index), myStudentS.StudentAverage(index), myStudentS.StudentGrade(index));
+
             }
+            ReadKey();
         }
     }
 }
