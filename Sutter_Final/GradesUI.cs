@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using static System.Console;
 
+/*Samantha Sutter
+ * Final Assignment
+ * ITDEV-115-200
+ * Janese Christie
+ * 05/15/23 */
+
+
 namespace Sutter_Final
 {
     class GradesUI
@@ -11,23 +18,25 @@ namespace Sutter_Final
 
         public void MainMethod()
         {
-            //instance an object of StudentUI..
+            //Creating instance of StudentUI
             myStudentS = new StudentS();
 
-            //Call StudentUI->PopulateStudents..
+            //Setting path to grades text file
             string path = "grades.txt";
+            //Setting result to return from PopulateStudents with grades text file
             string result = myStudentS.PopulateStudents(path);
 
-            //Verify file was successfully read.
-            //else display error message.
+            
+            //Verifying if file was successfully read
+            //If return from PopulateStudents starts with "Error: " displaying error msg to user
             if (result.StartsWith("Error: "))
             {
                 WriteLine("An error occurred while populating ");
                 WriteLine(result);
             }
+            //If populated correctly displaying students information
             else
             {
-                //if successfull call DisplayInfo()
                DisplayInfo();
 
             }

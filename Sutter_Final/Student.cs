@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
+/*Samantha Sutter
+ * Final Assignment
+ * ITDEV-115-200
+ * Janese Christie
+ * 05/15/23 */
+
 namespace Sutter_Final
 {
     class Student

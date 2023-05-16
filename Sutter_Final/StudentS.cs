@@ -4,62 +4,64 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
+/*Samantha Sutter
+ * Final Assignment
+ * ITDEV-115-200
+ * Janese Christie
+ * 05/15/23 */
+
 namespace Sutter_Final
 {
     class StudentS
     {
         List<Student> theStudentList;
 
-
-
         public string PopulateStudents(string path)
         {
-            //this is the method you need to implement...NO CONSOLE LOGIC in this file.
-            //use the parameter path for file name, and return an error string!!
-            //1) create instance of theStudentList (theStudentList = new List<Student>();)
+            //Instance of theStudentList
             theStudentList = new List<Student>();
-            
-            //2) create an instance of the StreamReader Class to read the data from the file named in the variable path
 
             try
             {
+                //Creating instance of SteamReader class to read data from file 
                 using (StreamReader sr = new StreamReader(path))
                 {
                     string line;
-                    //3) Open the File and read line by line using theReadLIne command
-                    //9) read next line and loop until null or line = ""
+                    //read next line and loop until null or line = ""
                     while ((line = sr.ReadLine()) != null)
                     {
-                        //4) split the line
+                        //Split the line
                         string[] data = line.Split(',');
+                        //Setting id, first name and last name
                         string id = data[0];
                         string firstName = data[1];
                         string lastName = data[2];
 
-                        //5) create one instance of Student, fill in id, first and last through the constructor
+                        //Creating instance of student with filled id, first and last name
                         Student student = new Student(id , firstName, lastName);
 
-                        //6) now loop through remaining fields 3 - 23 for earned and possible and set though method EnterGrade.
+                        //Loop through remaining fields 3 - 23 for earned and possible and set though method EnterGrade.
                         for (int i = 3; i < data.Length; i += 2)
                         {
                             int earned = int.Parse(data[i]);
                             int possible = int.Parse(data[i + 1]);
                             student.EnterGrade( earned, possible);
                         }
-                        //7) call CalGrade on the Student object - that sets the average and grade.
+                        //Set the average and grade.
                         student.CalGrade();
-                        //8) Add that Student to theStudentList (theStudentList.Add(aStudent);)
+                        //Adding student to theStudentList
                         theStudentList.Add(student);
                     }
-                    //10) Close the file
+                    //Closing the file
                     sr.Close();
                 }
             }
-            //do not forgot to use a Try/Catch block.
+            //Catching exception and returning error message
             catch (Exception e)
             {
                 return "Error: " + e.Message;
             }
+            //Returning message if populated successfully
             return "Populatuion completed successfully!";
 
         }
